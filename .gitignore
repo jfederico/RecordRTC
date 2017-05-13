@@ -7,3 +7,5 @@ bower_components
 .DS_Store
 
 !RecordRTC-to-Nodejs/node_modules
+
+RecordRTC-to-PHP/uploads

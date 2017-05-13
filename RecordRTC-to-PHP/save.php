@@ -5,10 +5,10 @@
 
 header("Access-Control-Allow-Origin: *");
 
-function selfInvoker()
-{
+function selfInvoker() {
     if (!isset($_POST['audio-filename']) && !isset($_POST['video-filename'])) {
-        echo 'PermissionDeniedError';
+        error_log('PermissionDeniedError');
+        echo('PermissionDeniedError');
         return;
     }
     
@@ -24,7 +24,8 @@ function selfInvoker()
     }
     
     if (empty($fileName) || empty($tempName)) {
-        echo 'PermissionDeniedError';
+        error_log('PermissionDeniedError');
+        echo('PermissionDeniedError');
         return;
     }
 
@@ -40,12 +41,14 @@ function selfInvoker()
     );
     $extension = pathinfo($filePath, PATHINFO_EXTENSION);
     if (!$extension || empty($extension) || !in_array($extension, $allowed)) {
-        echo 'PermissionDeniedError';
-        continue;
+        error_log('PermissionDeniedError');
+        echo('PermissionDeniedError');
+        return;
     }
     
     if (!move_uploaded_file($tempName, $filePath)) {
-        echo ('Problem saving file.');
+        error_log('Problem saving file.');
+        echo('Problem saving file.');
         return;
     }
     

@@ -1,0 +1,117 @@
+<!--
+> Muaz Khan     - www.MuazKhan.com
+> MIT License   - www.WebRTC-Experiment.com/licence
+> Documentation - github.com/muaz-khan/RecordRTC
+> and           - RecordRTC.org
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>RecordRTC | WebRTC Audio+Video+Screen Recording</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="author" type="text/html" href="https://plus.google.com/+MuazKhan">
+    <meta name="author" content="Muaz Khan">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <link rel="stylesheet" href="https://cdn.webrtc-experiment.com/style.css">
+    <link rel="stylesheet" href="clean.css">
+
+    <script src="https://cdn.webrtc-experiment.com/RecordRTC.js"></script>
+    <script src="https://cdn.webrtc-experiment.com/gif-recorder.js"></script>
+
+    <!-- for Edge/FF/Chrome/Opera/etc. getUserMedia support -->
+    <script src="https://cdn.webrtc-experiment.com/gumadapter.js"></script>
+    <script src="https://cdn.webrtc-experiment.com/DetectRTC.js"></script>
+</head>
+
+<body>
+    <article>
+        <header style="text-align: center;">
+            <h1>
+                RecordRTC | WebRTC Audio+Video+Screen Recording
+            </h1>
+        </header>
+
+        <section class="experiment recordrtc">
+            <h2 class="header">
+                <select class="recording-media">
+                    <option value="record-audio-plus-video">Microphone+Camera</option>
+                    <option value="record-audio">Microphone</option>
+                    <option value="record-screen">Full Screen</option>
+                    <option value="record-audio-plus-screen">Microphone+Screen</option>
+                </select>
+
+                <span style="font-size: 15px;">into</span>
+
+                <select class="media-container-format">
+                    <option>vp8</option>
+                    <option>vp9</option>
+                    <option>h264</option>
+                    <option>opus</option>
+                    <option>pcm</option>
+                    <option>gif</option>
+                    <option>whammy</option>
+                </select>
+
+                <input type="checkbox" id="chk-MultiStreamRecorder" style="margin:0;width:auto;">
+                <label for="chk-MultiStreamRecorder" style="font-size: 15px;margin:0;width: auto;cursor: pointer;-webkit-user-select:none;user-select:none;">All cameras?</label>
+
+                <br>
+
+                <button id="btn-start-recording">Start Recording</button>
+                <button id="btn-pause-recording" style="display: none; font-size: 15px;">Pause</button>
+
+                <hr style="border-top: 0;border-bottom: 1px solid rgb(189, 189, 189);margin: 4px -12px;margin-top: 8px;">
+                <select class="media-resolutions">
+                    <option value="default">Default resolutions</option>
+                    <option value="1920x1080">1080p</option>
+                    <option value="1280x720">720p</option>
+                    <option value="3840x2160">4K Ultra HD (3840x2160)</option>
+                </select>
+
+                <select class="media-framerates">
+                    <option value="default">Default framerates</option>
+                    <option value="5">5 fps</option>
+                    <option value="15">15 fps</option>
+                    <option value="24">24 fps</option>
+                    <option value="30">30 fps</option>
+                    <option value="60">60 fps</option>
+                </select>
+
+                <select class="media-bitrates">
+                    <option value="default">Default bitrates</option>
+                    <option value="8000000000">1 GB bps</option>
+                    <option value="800000000">100 MB bps</option>
+                    <option value="8000000">1 MB bps</option>
+                    <option value="800000">100 KB bps</option>
+                    <option value="8000">1 KB bps</option>
+                    <option value="800">100 Bytes bps</option>
+                </select>
+            </h2>
+
+            <div style="text-align: center; display: none;">
+                <button id="save-to-disk">Save To Disk</button>
+                <button id="upload-to-php">Upload to PHP</button>
+                <button id="open-new-tab">Open New Tab</button>
+            </div>
+
+            <div style="margin-top: 10px;">
+                <video id="recording-player" controls muted></video>
+            </div>
+        </section>
+
+        <script src="clean.js"></script>
+        <script src="libs/cors_upload.js"></script>
+        <script src="libs/multistream_recorder.js"></script>
+    </article>
+
+    <script src="https://cdn.webrtc-experiment.com/commits.js" async></script>
+    <script src="https://apis.google.com/js/client:plusone.js"></script>
+
+    <!-- <script src="https://cdn.webrtc-experiment.com/getScreenId.js"></script> -->
+</body>
+
+</html>
